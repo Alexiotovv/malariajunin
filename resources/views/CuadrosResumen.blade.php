@@ -5,7 +5,7 @@
     
     <label for="">Seleccione Localidades (Máximo 10)</label>
     <form id="frmLocalidades">
-        {{-- action="{{route('Cuadro.EtapaVida')}}" method="POST" --}}
+        {{--  action="{{route('Cuadro.EtapaVida')}}" method="POST" --}}
         @csrf
         <div class="row">
 
@@ -53,6 +53,7 @@
         </div>
 
     </div>
+
     <div class="card">
         <div class="card-header border-bottom" style="align-self: center;">
             <h5 class="card-title">T.RESIDENCIA/V.MULTIFAMILIAR</h5>
@@ -84,6 +85,98 @@
         </div>
 
     </div>
+
+    <div class="card">
+        <div class="card-header border-bottom" style="align-self: center;">
+            <h5 class="card-title">TIEMPO AL ESTABLECIMIENTO DE SALUD MÁS CERCANO</h5>
+        </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6" style="align-self: center;">
+                        <div class="card-datatable">
+                            <table id="DTFF_TiempoEESSCercano" class="table table-responsive">
+                                <thead>
+                                    <tr>
+                                        <th style="font-size: 10px;">RANGO MINUTOS</th>
+                                        <th style="font-size: 10px;">TOTAL</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                </div>
+                <div class="col-md-6">
+                    <div id="myChartFF_TiempEESSCercano">
+                        
+                    </div>	
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="card">
+        <div class="card-header border-bottom" style="align-self: center;">
+            <h5 class="card-title">MEDIOS DE TRANSPORTES USADOS</h5>
+        </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6" style="align-self: center;">
+                        <div class="card-datatable">
+                            <table id="DTFF_MedioTransporte" class="table table-responsive">
+                                <thead>
+                                    <tr>
+                                        <th style="font-size: 10px;">MEDIO DE TRANSPORTE</th>
+                                        <th style="font-size: 10px;">TOTAL</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                </div>
+                <div class="col-md-6">
+                    <div id="myChartFF_MedioTransporte">
+                        
+                    </div>	
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="card">
+        <div class="card-header border-bottom" style="align-self: center;">
+            <h5 class="card-title">CARACTERÍSTICAS DE LOS MIEMBROS DE LA FAMILIA</h5>
+        </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6" style="align-self: center;">
+                        <div class="card-datatable">
+                            <table id="DTFF_CaracMiembrosFamilia" class="table table-responsive">
+                                <thead>
+                                    <tr>
+                                        <th style="font-size: 10px;">NOMBRE DEL ITEM</th>
+                                        <th style="font-size: 10px;">TOTAL</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                </div>
+                <div class="col-md-6">
+                    <div id="myChartFF_CaracMiembrosFamilia">
+                        
+                    </div>	
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
 @endsection
 
 @section('extra_js')

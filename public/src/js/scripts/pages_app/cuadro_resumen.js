@@ -11,14 +11,20 @@ var TRSi = [];
 var TRNo = [];
 var TRTotal = [];
 //End Riempo Residencia
+var TIEMPO_ESS_CERCANO=[];
+var TIEMPO_ESS_TOTAL=[];
 
+var MEDIO_TRANSPORTE=[];
+var MEDIO_TRANS_TOTAL=[];
 $("#btnEtapaVida").on("click",function (e) {
+    e.preventDefault();
     if ($('#Localidades :selected').length>10) {    
       alert("Solo se permite seleccionar 10 Localidades");
     }
 
-    e.preventDefault();
+      e.preventDefault();
       ds=$("#frmLocalidades").serialize();
+
       EtapasVidas = [];
       EVMasculino = [];
       EVFemenino = [];
@@ -28,7 +34,13 @@ $("#btnEtapaVida").on("click",function (e) {
       TRSi = [];
       TRNo = [];
       TRTotal = [];
+      
+      TIEMPO_ESS_CERCANO=[];
+      TIEMPO_ESS_TOTAL=[];
 
+      MEDIO_TRANSPORTE=[];
+      MEDIO_TRANS_TOTAL=[];
+      
       $.ajax({
           type: "POST",
           url: "CuadroEtapaVida",
@@ -37,8 +49,11 @@ $("#btnEtapaVida").on("click",function (e) {
           success: function (response) {
               $("#DTEtapaVida tbody").html("");
               $("#DTFF_TiempRes tbody").html("");
+              $("#DTFF_TiempoEESSCercano tbody").html("");
+              $("#DTFF_MedioTransporte tbody").html("");
               
-
+              
+            //CUADRO ETAPA DE VIDA
             $.each(response.ETAPA, function (index, item) {
               $("#DTEtapaVida tbody").append('<tr>\
                   <td style="font-size: 11px;">'+ item.ETAPA_VIDA+'</td>\
@@ -52,6 +67,9 @@ $("#btnEtapaVida").on("click",function (e) {
               EVFemenino.push(item.FEMENINO);
               EVTotal.push(item.TOTAL);
             });
+            //END CUADRO ETAPA DE VIDA
+            
+            //CUADRO TIEMPO_RESIDENCIA
             $.each(response.FF_TIEMPO_RES, function (index, item) {
               $("#DTFF_TiempRes tbody").append('<tr>\
                   <td style="font-size: 11px;">'+ item.TIEMPO_RESIDENCIA+'</td>\
@@ -66,10 +84,40 @@ $("#btnEtapaVida").on("click",function (e) {
               TRNo.push(item.NO);
               TRTotal.push(item.TOTAL);
             });
+            //END CUADRO TIEMPO_RESIDENCIA
 
-              PoblacionEtapaVida();
-              MultiFam_TiempRes();
-                
+            //CUADRO TIEMPO EESS MAS CERCANO
+            $.each(response.ESS_CERCANO, function (index, item) { 
+              $("#DTFF_TiempoEESSCercano tbody").append('<tr>\
+                <td style="font-size: 11px;">'+ item.RANGO_TIEMPO +'</td>\
+                <td style="font-size: 11px;">'+ item.TOTAL+'</td>\
+              </tr>'
+              );
+              TIEMPO_ESS_CERCANO.push(item.RANGO_TIEMPO);
+              TIEMPO_ESS_TOTAL.push(item.TOTAL);
+            });
+
+            
+            //END CUADRO TIEMPO EESS MAS CERCANO
+
+             //CUADRO MEDIO TRANSPORTE MAS USADO
+             $.each(response.TRANS_MAS_USADO, function (index, item) { 
+              
+              $("#DTFF_MedioTransporte tbody").append('<tr>\
+                <td style="font-size: 11px;">'+ item.MEDIO_TRANSPORTE +'</td>\
+                <td style="font-size: 11px;">'+ item.TOTAL+'</td>\
+              </tr>'
+              );
+              MEDIO_TRANSPORTE.push(item.MEDIO_TRANSPORTE);
+              MEDIO_TRANS_TOTAL.push(item.TOTAL);
+            });
+            //END MEDIO TRANSPORTE MAS USADO
+
+            //TODAS LAS FUNCIONES PARA  REALIZAR LOS GRÁFICOS
+            PoblacionEtapaVida();
+            MultiFam_TiempRes();
+            TiempoESSCercano();
+            TransporteMasUsado();
           }
       });
     
@@ -129,7 +177,7 @@ function PoblacionEtapaVida(){
   };
   var chart = new ApexCharts(document.querySelector("#myChartEtapaVida"), options);
   chart.render();
-
+  window.dispatchEvent(new Event('resize'))
 }
 
 function MultiFam_TiempRes(){
@@ -185,4 +233,106 @@ function MultiFam_TiempRes(){
   };
   var chart = new ApexCharts(document.querySelector("#myChartFF_TiempRes"), options);
   chart.render();
+  window.dispatchEvent(new Event('resize'))
+}
+
+function TiempoESSCercano(){
+  var options = {
+    series: TIEMPO_ESS_TOTAL,
+    labels: TIEMPO_ESS_CERCANO,
+    chart: {
+    type: 'donut',
+  },
+  responsive: [{
+    breakpoint: 480,
+    options: {
+      chart: {
+        width: 200
+      },
+      legend: {
+        position: 'bottom'
+      }
+    }
+  }]
+  };
+  var chart = new ApexCharts(document.querySelector("#myChartFF_TiempEESSCercano"), options);
+  chart.render();
+  window.dispatchEvent(new Event('resize'))
+
+}
+
+function TransporteMasUsado(){
+  var options = {
+    series: [{
+    name: 'Servings',
+    data: MEDIO_TRANS_TOTAL
+  }],
+    annotations: {
+    points: [{
+      x: 'Bananas',
+      seriesIndex: 0,
+      label: {
+        borderColor: '#775DD0',
+        offsetY: 0,
+        style: {
+          color: '#fff',
+          background: '#775DD0',
+        },
+        text: 'Bananas are good',
+      }
+    }]
+  },
+  chart: {
+    height: 350,
+    type: 'bar',
+  },
+  plotOptions: {
+    bar: {
+      borderRadius: 10,
+      columnWidth: '50%',
+    }
+  },
+  dataLabels: {
+    enabled: false
+  },
+  stroke: {
+    width: 2
+  },
+  
+  grid: {
+    row: {
+      colors: ['#fff', '#f2f2f2']
+    }
+  },
+  xaxis: {
+    labels: {
+      rotate: -45
+    },
+    categories: MEDIO_TRANSPORTE,
+    tickPlacement: 'on'
+  },
+  yaxis: {
+    title: {
+      text: 'Cantidad',
+    },
+  },
+  fill: {
+    type: 'gradient',
+    gradient: {
+      shade: 'light',
+      type: "horizontal",
+      shadeIntensity: 0.25,
+      gradientToColors: undefined,
+      inverseColors: true,
+      opacityFrom: 0.85,
+      opacityTo: 0.85,
+      stops: [50, 0, 100]
+    },
+  }
+  };
+
+  var chart = new ApexCharts(document.querySelector("#myChartFF_MedioTransporte"), options);
+  chart.render();
+  window.dispatchEvent(new Event('resize'))
+
 }

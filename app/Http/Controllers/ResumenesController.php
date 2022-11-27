@@ -59,9 +59,13 @@ class ResumenesController extends Controller
         }
         $ETAPA = DB::select("call ETAPA_VIDA('$Loca1','$Loca2','$Loca3','$Loca4','$Loca5','$Loca6','$Loca7','$Loca8','$Loca9','$Loca10')");
         $FF_TIEMPO_RES = DB::select("call FF_MULTIFAM_TIEMP_RESIDENCIA('$Loca1','$Loca2','$Loca3','$Loca4','$Loca5','$Loca6','$Loca7','$Loca8','$Loca9','$Loca10')");
+        $ESS_CERCANO=DB::select("call FF_TIEMPO_ESS_CERCANO('$Loca1','$Loca2','$Loca3','$Loca4','$Loca5','$Loca6','$Loca7','$Loca8','$Loca9','$Loca10')");
+        $TRANS_MAS_USADO=DB::select("call FF_TRANSPORTE_MAS_USADO('$Loca1','$Loca2','$Loca3','$Loca4','$Loca5','$Loca6','$Loca7','$Loca8','$Loca9','$Loca10')");
         return response()->json([
             'ETAPA'=>$ETAPA,
-            'FF_TIEMPO_RES'=>$FF_TIEMPO_RES
+            'FF_TIEMPO_RES'=>$FF_TIEMPO_RES,
+            'ESS_CERCANO'=>$ESS_CERCANO,
+            'TRANS_MAS_USADO'=>$TRANS_MAS_USADO,
         ]);
     }
 
