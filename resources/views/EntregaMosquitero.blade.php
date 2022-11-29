@@ -220,6 +220,7 @@
     </div>
 
     <form id="formCensoMosquitero">
+        {{--  method="POST" action="{{route('Guardar.Encuestado')}}" --}}
         @csrf
         <div class="modal-size-xl d-inline-block">
             <div class="modal fade text-left" id="ModalCensoMosquitero" tabindex="-1" role="dialog"
@@ -252,7 +253,7 @@
                                         </div>
                                         <div class="col-xl-2">
                                             <label for="form" class="form-label">Edad</label>
-                                            <input type="text" class="form-control" step="0.01" name="Edad" id="Edad">
+                                            <input type="number" class="form-control" step="0.01" name="Edad" id="Edad">
                                         </div>
                                         <div class="col-xl-2">
                                             <label for="form" class="form-label">N° Documento Identidad</label>
