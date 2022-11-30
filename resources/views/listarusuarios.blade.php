@@ -1,6 +1,7 @@
 @extends('layouts.base')
 
 @section('content')
+
     {{-- LISTAR USUARIOS --}}
     <div class="card">
         <div class="card-header border-bottom">
@@ -10,7 +11,7 @@
             </button>
         </div>
 
-        <table class="table table-responsive" id="DTUsuarios">
+        <table class="datatables-advance table" id="DTUsuarios">
             <thead>
                 <tr>
                     <th>ID</th>
@@ -26,9 +27,8 @@
             <tbody>
             </tbody>
         </table>
-    </div>
     {{-- END LISTAR USUARIOS --}}
-
+    </div>
     {{-- FORM REGISTER/UPDATE USUARIOS --}}
     <form id="formUsuario">
         @csrf
@@ -155,4 +155,10 @@
 @section('extra_js')
     <script src="../../../src/js/scripts/pages_app/crud.js"></script>
     <script src="../../../src/js/scripts/pages_app/usuarios.js"></script>
+@endsection
+
+@section('code_js')
+     <!-- BEGIN: Page JS-->
+     <script src="../../../app-assets/js/scripts/tables/table-datatables-basic.min.js"></script>
+     <!-- END: Page JS-->
 @endsection

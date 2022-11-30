@@ -576,13 +576,14 @@
         <script src="../../../app-assets/js/scripts/forms/form-select2.js"></script>
     <!-- END: Page JS-->
 
-        <!-- BEGIN: Page JS-->
+    <!-- BEGIN: Page JS-->
     <script src="../../../app-assets/js/scripts/ui/ui-feather.js"></script>
     <!-- END: Page JS-->
+    
     <!-- BEGIN: Page JS-->
     <script src="../../../app-assets/js/scripts/tables/table-datatables-advanced.js"></script>
-    
     <!-- END: Page JS-->
+    
     @yield('code_js')
     @yield('extra_js')
     <script>

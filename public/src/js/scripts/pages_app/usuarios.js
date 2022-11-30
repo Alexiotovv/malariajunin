@@ -142,6 +142,9 @@ $("#DTUsuarios").DataTable({
         {data:"is_admin"},
         {data:"status"},
     ],order:[0],
+    buttons:['copy','excel','pdf'],
+    dom: 'Bfrtip',
+
 });
 
 function LimpiarFormUsuarios(){

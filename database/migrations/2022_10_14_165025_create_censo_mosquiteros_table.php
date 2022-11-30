@@ -16,7 +16,7 @@ class CreateCensoMosquiterosTable extends Migration
         Schema::create('censo_mosquiteros', function (Blueprint $table){
             $table->id();
             $table->bigInteger('IdFichaMosquitero')->unsigned();
-            $table->foreign('IdFichaMosquitero')->references('id')->on('Mosquiteros')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('IdFichaMosquitero')->references('id')->on('mosquiteros')->onDelete('cascade')->onUpdate('cascade');
             $table->tinyInteger('NumeroMosquitero')->default(0);
             $table->tinyInteger('CantidadUsan')->default(0);
             $table->string('Tamano', 1)->nullable()->default('');
