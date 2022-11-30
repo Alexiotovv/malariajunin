@@ -217,6 +217,7 @@
                                             <option value="CP. LOS ANGELES DE RIO ENE">CP. LOS ANGELES DE RIO ENE</option>
                                             <option value="PUERTO SHAMPINTIARI">PUERTO SHAMPINTIARI</option>
                                             <option value="SHAMPINTIARI">SHAMPINTIARI</option>
+                                            <option value="CC.NN CHANCHOCOPIARI">CC.NN CHANCHOCOPIARI</option>
                                         </select>
                                     </div>
                                     <div class="col-lg-3">

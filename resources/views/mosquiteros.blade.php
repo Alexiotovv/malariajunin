@@ -97,7 +97,55 @@
                                 <div class="row">
                                     <div class="col-lg-4">
                                         <label for="">LOCALIDAD</label>
-                                        <input type="text" name="Localidad" id="Localidad" class="form-control form-control-sm">
+                                        <select name="Localidad" id="Localidad" class="select2-size-sm form-control-sm">
+                                            <option value="--">--</option>
+                                            <option value="CUTIVIRENI">CUTIVIRENI</option>
+                                            <option value="CAMANTAVISHI">CAMANTAVISHI</option>
+                                            <option value="TINCARENI">TINCARENI</option>
+                                            <option value="TSYAPO">TSYAPO</option>
+                                            <option value="PAMAQUIARI">PAMAQUIARI</option>
+                                            <option value="YOYATO">YOYATO</option>
+                                            <option value="COBEJA">COBEJA</option>
+                                            <option value="PAJONAL">PAJONAL</option>
+                                            <option value="SELVA VERDE">SELVA VERDE</option>
+                                            <option value="TIBORENI">TIBORENI</option>
+                                            <option value="SHAPO">SHAPO</option>
+                                            <option value="SELVA DE ORO">SELVA DE ORO</option>
+                                            <option value="QUEMPIRI">QUEMPIRI</option>
+                                            <option value="FE Y ALEGRIA">FE Y ALEGRIA</option>
+                                            <option value="SOL NACIENTE">SOL NACIENTE</option>
+                                            <option value="POTSOTINCANI">POTSOTINCANI</option>
+                                            <option value="CC.NN. SANITE">CC.NN. SANITE</option>
+                                            <option value="PAMPA ALEGRE">PAMPA ALEGRE</option>
+                                            <option value="SAN CARLOS DE ALTO ENE">SAN CARLOS DE ALTO ENE</option>
+                                            <option value="CORIRI">CORIRI</option>
+                                            <option value="VALLE ESMERALDA">VALLE ESMERALDA</option>
+                                            <option value="PUERTO ROCA">PUERTO ROCA</option>
+                                            <option value="PAVENI">PAVENI</option>
+                                            <option value="CC.NN SATARONSHIATO">CC.NN SATARONSHIATO</option>
+                                            <option value="QUIMARO CENTRO">QUIMARO CENTRO</option>
+                                            <option value="QUIMARO ALTO">QUIMARO ALTO</option>
+                                            <option value="SAN MIGUEL DEL ENE">SAN MIGUEL DEL ENE</option>
+                                            <option value="SHAORIATO">SHAORIATO</option>
+                                            <option value="TUNUNTUARI">TUNUNTUARI</option>
+                                            <option value="MICAELA BASTIDAS">MICAELA BASTIDAS</option>
+                                            <option value="BOCA ANAPATI">BOCA ANAPATI</option>
+                                            <option value="PACHACAMILLA">PACHACAMILLA</option>
+                                            <option value="YAVIRO">YAVIRO</option>
+                                            <option value="CC.NN. SAN ENE">CC.NN. SAN ENE</option>
+                                            <option value="CCNNN. ALTO CHICHIRENI">CCNNN. ALTO CHICHIRENI</option>
+                                            <option value="CCNN. MATERENI">CCNN. MATERENI</option>
+                                            <option value="CP. LIBERTAD DE ANAPATI">CP. LIBERTAD DE ANAPATI</option>
+                                            <option value="CP. UNION PIOTA">CP. UNION PIOTA</option>
+                                            <option value="CP. TUPAC AMARU">CP. TUPAC AMARU</option>
+                                            <option value="CP. PUERTO ANAPATI">CP. PUERTO ANAPATI</option>
+                                            <option value="CP. NUEVA BERLIN">CP. NUEVA BERLIN</option>
+                                            <option value="CP. MAVENI">CP. MAVENI</option>
+                                            <option value="CP. LOS ANGELES DE RIO ENE">CP. LOS ANGELES DE RIO ENE</option>
+                                            <option value="PUERTO SHAMPINTIARI">PUERTO SHAMPINTIARI</option>
+                                            <option value="SHAMPINTIARI">SHAMPINTIARI</option>
+                                            <option value="CC.NN CHANCHOCOPIARI">CC.NN CHANCHOCOPIARI</option>
+                                        </select>
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="form-group">

@@ -134,7 +134,7 @@ $(document).on("click",".btnEditarMosquitero",function (e) {
         dataType: "json",
         success: function (response) {
             $("#IdMosquitero").val(id);
-            $("#Localidad").val(response[0].Localidad);
+            $("#Localidad").val(response[0].Localidad).change();
             $("#Provincia").val(response[0].IdProvincia).change();
             $("#Distrito").val(response[0].IdDistrito).change();
             $("#Establecimiento").val(response[0].IdEstablecimiento).change();
@@ -191,7 +191,7 @@ $(document).on("click","#btnNuevoMosquitero",function (e) {
     e.preventDefault();
     $("#EtiquetaMosquitero").text('Registro de Mosquiteros Retenidos y Usados');
     $("#IdMosquitero").val('');
-    $("#Localidad").val('');
+    $("#Localidad").val('--').change();
     $("#TiempoHorasEESS").val('');
     $("#TiempoHorasEESSMicroscopio").val('');
     $("#Hombres").val(0);
@@ -250,7 +250,7 @@ $("#DTListaMosquiteros").DataTable({
 
 function LimpiarMosquiteros(){
     $("#IdMosquitero").val('');
-    $("#Localidad").val('');
+    $("#Localidad").val('--').change();
     $("#TiempoHorasEESS").val('');
     $("#TiempoHorasEESSMicroscopio").val('0');
     $("#Hombres").val('0');
