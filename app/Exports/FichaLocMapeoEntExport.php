@@ -27,13 +27,14 @@ class FichaLocMapeoEntExport implements FromCollection,WithHeadings
         ->leftjoin('distritos','distritos.id','=','mapeoentos.IdDistrito')
         ->leftjoin('mapeoento_indicepicaduras','mapeoento_indicepicaduras.IdMapeoEnto','=','mapeoentos.id')
         ->leftjoin('users','users.id','=','mapeoentos.Usuario')
+        ->leftjoin('localidades','localidades.id','=','mapeoentos.idLocalidad')
         ->select(
         'mapeoentos.id as ID_FICHA',
         'provincias.nombre_provincia AS PROVINCIA',
         'distritos.nombre_distrito AS DISTRITO',
         'reds.nombre_red AS RED',
         'microreds.nombre_microred AS MICRORED',
-        'mapeoentos.Localidad AS LOCALIDAD',
+        'localidades.nombre_localidad AS LOCALIDAD',
         'mapeoento_indicepicaduras.fecha AS FECHA',
         'mapeoento_indicepicaduras.indicehombrehora AS INDICE_HOMBRE_HORA',
         'mapeoento_indicepicaduras.indicehombrenoche AS INDICE_HOMBRE_NOCHE',

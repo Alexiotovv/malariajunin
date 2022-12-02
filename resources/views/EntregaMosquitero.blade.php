@@ -20,8 +20,8 @@
                         <th>Departamento</th>
                         <th>Provincia</th>
                         <th>Distrito</th>
-                        <th>Comunidad</th>
                         <th>IPRESS</th>
+                        <th>Comunidad</th>
                         <th>FechaEntrega</th>
                         <th>FechaMonitoreo</th>
                         <th>NúmeroMonitoreo</th>
@@ -94,7 +94,11 @@
                                 </div>
                                 <div class="col-xl-3">
                                     <label for="form" class="form-label">Comunidad</label>
-                                    <input type="text" class="form-control" name="Comunidad" id="Comunidad">
+                                    <select name="Localidad" id="Localidad" class="select2" >
+                                        @foreach ($localidades as $loc)
+                                            <option value="{{$loc->id}}">{{$loc->nombre_localidad}}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
 

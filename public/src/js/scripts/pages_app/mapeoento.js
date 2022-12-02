@@ -113,7 +113,7 @@ $("#btnNuevoMapeoEnto").click(function (e) {
     e.preventDefault();
     $("#EtiquetaMapeoEnto").text('REGISTRO FICHA DE EVALUACIÓN DE LOCALIDADES CON MAPEO ENTOMOLÓGICO');
     $("#IdMapeoEnto").val('');
-    $("#Localidad").val('');
+    // $("#Localidad").val('');
     $("#ModalMapeoEnto").modal('show');
 });
 
@@ -128,7 +128,7 @@ $(document).on("click",".btnEditarMapeoEnto",function (e) {
         dataType: "json",
         success: function (response) {
             $("#IdMapeoEnto").val(id);
-            $("#Localidad").val(response[0].Localidad);
+            $("#Localidad").val(response[0].idLocalidad).change();
             $("#Provincia").val(response[0].IdProvincia).change();
             $("#Distrito").val(response[0].IdDistrito).change();
             $("#Idred").val(response[0].Idred).change();
@@ -189,7 +189,7 @@ $("#DTListaMapeoEnto").DataTable({
         {data:'Distrito'},
         {data:'Red'},
         {data:'Microred'},
-        {data:'Localidad'},
+        {data:'NombreLocalidad'},
         {data:'Usuario'},
         ],
     order: [0],

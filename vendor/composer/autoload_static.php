@@ -588,6 +588,7 @@ class ComposerStaticInitd85d19bdc5bcb4b3b687f59d03f75b9e
         'App\\Http\\Controllers\\EncuestadoMosqsController' => __DIR__ . '/../..' . '/app/Http/Controllers/EncuestadoMosqsController.php',
         'App\\Http\\Controllers\\EstablecimientosController' => __DIR__ . '/../..' . '/app/Http/Controllers/EstablecimientosController.php',
         'App\\Http\\Controllers\\FichaFamiliarsController' => __DIR__ . '/../..' . '/app/Http/Controllers/FichaFamiliarsController.php',
+        'App\\Http\\Controllers\\LocalidadesController' => __DIR__ . '/../..' . '/app/Http/Controllers/LocalidadesController.php',
         'App\\Http\\Controllers\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/LoginController.php',
         'App\\Http\\Controllers\\MantbienesController' => __DIR__ . '/../..' . '/app/Http/Controllers/MantbienesController.php',
         'App\\Http\\Controllers\\MantbienesDetalleController' => __DIR__ . '/../..' . '/app/Http/Controllers/MantbienesDetalleController.php',

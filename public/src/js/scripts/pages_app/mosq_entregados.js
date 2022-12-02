@@ -120,9 +120,9 @@ $(document).on("click",".btnCensoMosquiteroEntregado",function (e) {
         "method":"GET",
         "columns":[
             {data:"IdEncuestado"},
-            {"defaultContent":
-            "<button class='btn-warning btn-sm btnEditarEncuestado'><i data-feather='edit-3'></i></button>\
-            <button class='btn-danger btn-sm btnEliminarEncuestado'><i data-feather='x'></i></button>"},
+                {"defaultContent":
+                "<button class='btn-warning btn-sm btnEditarEncuestado'><i data-feather='edit-3'></i></button>\
+                <button class='btn-danger btn-sm btnEliminarEncuestado'><i data-feather='x'></i></button>"},
             {data:"Nombre"},
             {data:"Apellido"},
             {data:"Edad"},
@@ -194,7 +194,7 @@ $(document).on("click",".btnEditarMosquiteroEntregado", function (e) {
             $("#Provincia").val(response[0].Provincia).change();
             $("#Distrito").val(response[0].Distrito).change();
             $("#Ipress").val(response[0].Ipress).change();
-            $("#Comunidad").val(response[0].Comunidad);
+            $("#Localidad").val(response[0].idLocalidad).change();
             $("#FechaEntrega").val(response[0].FechaEntrega);
             $("#FechaMonitoreo").val(response[0].FechaMonitoreo);
             $("#NumeroMonitoreo").val(response[0].NumeroMonitoreo);
@@ -232,7 +232,7 @@ $("#btnNuevoMosquiteroEntregado").on("click",function(e){
     $("#EtiquetaMosquitero").text('Nuevo Registro de Evaluación Mosquiteros Entregados');
     $("#idEntregaMosquitero").val('');
     $("#NumeroMonitoreo").val(1).change();
-    $("#Comunidad").val('');
+    // $("#Localidad").val('');
     $("#Responsable").val('');
     $("#CargoResponsable").val('');
     $("#ModalMosquiteroEntregado").modal('show');    
@@ -259,7 +259,7 @@ $("#DTListaMosquiterosEntregados").DataTable({
                 {data:'nombre_provincia'},
                 {data:'nombre_distrito'},
                 {data:'nombre_establecimiento'},
-                {data:'Comunidad'},
+                {data:'nombre_localidad'},
                 {data:'FechaEntrega'},
                 {data:'FechaMonitoreo'},
                 {data:'NumeroMonitoreo'},

@@ -28,6 +28,7 @@ return array(
     'App\\Http\\Controllers\\EncuestadoMosqsController' => $baseDir . '/app/Http/Controllers/EncuestadoMosqsController.php',
     'App\\Http\\Controllers\\EstablecimientosController' => $baseDir . '/app/Http/Controllers/EstablecimientosController.php',
     'App\\Http\\Controllers\\FichaFamiliarsController' => $baseDir . '/app/Http/Controllers/FichaFamiliarsController.php',
+    'App\\Http\\Controllers\\LocalidadesController' => $baseDir . '/app/Http/Controllers/LocalidadesController.php',
     'App\\Http\\Controllers\\LoginController' => $baseDir . '/app/Http/Controllers/LoginController.php',
     'App\\Http\\Controllers\\MantbienesController' => $baseDir . '/app/Http/Controllers/MantbienesController.php',
     'App\\Http\\Controllers\\MantbienesDetalleController' => $baseDir . '/app/Http/Controllers/MantbienesDetalleController.php',

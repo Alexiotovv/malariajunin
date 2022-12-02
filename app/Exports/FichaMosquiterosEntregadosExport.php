@@ -28,12 +28,13 @@ class FichaMosquiterosEntregadosExport implements FromCollection,WithHeadings
         ->leftjoin('establecimientos','establecimientos.id','=','mosquiteros_entregados.Ipress')
         ->leftjoin('users','users.id','=','mosquiteros_entregados.Usuario')
         ->leftjoin('encuestado_mosqs','encuestado_mosqs.idMonitoreo','=','mosquiteros_entregados.id')
+        ->leftjoin('localidades','localidades.id','=','mosquiteros_entregados.idLocalidad')
         ->select(
             'departamentos.nombre_departamento as DEPARTAMENTO',
             'provincias.nombre_provincia as PROVINCIA',
             'distritos.nombre_distrito as DISTRITO',
             'establecimientos.nombre_establecimiento as IPRESS',
-            'mosquiteros_entregados.Comunidad AS COMUNIDAD',
+            'localidades.nombre_localidad AS COMUNIDAD',
             'mosquiteros_entregados.FechaEntrega AS FECHA_ENTREGA',
             'mosquiteros_entregados.FechaMonitoreo AS FECHA_MONITOREO',
             'mosquiteros_entregados.NumeroMonitoreo AS NUMERO_MONITOREO',

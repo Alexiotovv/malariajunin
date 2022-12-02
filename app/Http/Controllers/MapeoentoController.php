@@ -8,7 +8,6 @@ use Illuminate\Http\Request;
 use DB;
 class MapeoentoController extends Controller
 {
-
     public function EditaIndicePicadura($id)
     {
         $obj= DB::table('mapeoento_indicepicaduras')
@@ -85,7 +84,7 @@ class MapeoentoController extends Controller
         $obj->Idmicrored=request('Idmicrored');
         $obj->IdProvincia=request('Provincia');
         $obj->IdDistrito=request('Distrito');
-        $obj->Localidad=request('Localidad');
+        $obj->idLocalidad=request('Localidad');
         $obj->save();
         $data=['Mensaje'=>'Ok'];
         return response()->json($data);
@@ -98,7 +97,7 @@ class MapeoentoController extends Controller
         $obj->Idmicrored=request('Idmicrored');
         $obj->IdProvincia=request('Provincia');
         $obj->IdDistrito=request('Distrito');
-        $obj->Localidad=request('Localidad');
+        $obj->idLocalidad=request('Localidad');
         $obj->Usuario=auth()->user()->id;
         $obj->save();
         $data=['Mensaje'=>'Ok'];
@@ -113,9 +112,11 @@ class MapeoentoController extends Controller
         ->leftjoin('reds','reds.id','=','mapeoentos.Idred')
         ->leftjoin('microreds','microreds.id','=','mapeoentos.Idmicrored')
         ->leftjoin('users','users.id','=','mapeoentos.Usuario')
+        ->leftjoin('localidades','localidades.id','=','mapeoentos.idLocalidad')
         ->select('mapeoentos.*','provincias.nombre_provincia as Provincia',
         'reds.nombre_red as Red','microreds.nombre_microred as Microred',
-        'distritos.nombre_distrito as Distrito','users.name as Usuario')
+        'distritos.nombre_distrito as Distrito','users.name as Usuario',
+        'localidades.nombre_localidad as NombreLocalidad')
         ->where('mapeoentos.delete','=',0)
         ->get();
         return datatables()->of($lista)->toJson();
@@ -145,6 +146,9 @@ class MapeoentoController extends Controller
         ->select('microreds.codigo_microred as codigo','microreds.id as id','microreds.nombre_microred')
         ->get();
 
-        return view('Mapeoento',compact('prov','dist','red','microred'));
+        $localidades=DB::table('localidades')
+        ->select('localidades.id as id','localidades.nombre_localidad')
+        ->get();
+        return view('Mapeoento',compact('prov','dist','red','microred','localidades'));
     }
 }

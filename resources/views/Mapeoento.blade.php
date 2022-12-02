@@ -139,7 +139,11 @@
                             
                                     <div class="col-lg-4">
                                         <label for="">LOCALIDAD</label>
-                                        <input type="text" name="Localidad" id="Localidad" class="form-control form-control-md">
+                                        <select name="Localidad" id="Localidad" class="select2" >
+                                            @foreach ($localidades as $loc)
+                                                <option value="{{$loc->id}}">{{$loc->nombre_localidad}}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
                                 </div>
                             </div>

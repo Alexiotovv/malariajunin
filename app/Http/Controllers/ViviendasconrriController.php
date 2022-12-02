@@ -85,7 +85,7 @@ class ViviendasconrriController extends Controller
         $obj->Idmicrored=request('Idmicrored');
         $obj->IdProvincia=request('Provincia');
         $obj->IdDistrito=request('Distrito');
-        $obj->Localidad=request('Localidad');
+        $obj->idLocalidad=request('Localidad');
         $obj->save();
         $data=['Mensaje'=>'Ok'];
         return response()->json($data);
@@ -98,7 +98,7 @@ class ViviendasconrriController extends Controller
         $obj->Idmicrored=request('Idmicrored');
         $obj->IdProvincia=request('Provincia');
         $obj->IdDistrito=request('Distrito');
-        $obj->Localidad=request('Localidad');
+        $obj->idLocalidad=request('Localidad');
         $obj->Usuario=auth()->user()->id;
         $obj->save();
         $data=['Mensaje'=>'Ok'];
@@ -113,8 +113,10 @@ class ViviendasconrriController extends Controller
         ->leftjoin('reds','reds.id','=','viviendasconrris.Idred')
         ->leftjoin('microreds','microreds.id','=','viviendasconrris.Idmicrored')
         ->leftjoin('users','users.id','=','viviendasconrris.Usuario')
+        ->leftjoin('localidades','localidades.id','=','viviendasconrris.idLocalidad')
         ->select('viviendasconrris.*','provincias.nombre_provincia as Provincia',
         'reds.nombre_red as Red','microreds.nombre_microred as Microred',
+        'localidades.nombre_localidad as NombreLocalidad',
         'distritos.nombre_distrito as Distrito','users.name as Usuario')
         ->where('viviendasconrris.delete','=',0)
         ->get();
@@ -127,6 +129,7 @@ class ViviendasconrriController extends Controller
         // ->select('departamentos.id as id','departamentos.nombre_departamento as nombre_dpto')
         // ->where('departamentos.nombre_departamento','=','JUNIN') 
         // ->get();
+        
         $prov=DB::table('provincias')
         ->leftjoin('departamentos','departamentos.id','=','provincias.dptoId')
         ->select('provincias.id as id','provincias.nombre_provincia as nombre_prov')
@@ -147,7 +150,11 @@ class ViviendasconrriController extends Controller
         $microred=DB::table('microreds')
         ->select('microreds.codigo_microred as codigo','microreds.id as id','microreds.nombre_microred')
         ->get();
+        
+        $localidades=DB::table('localidades')
+        ->select('localidades.id as id','localidades.nombre_localidad')
+        ->get();
 
-        return view('viviendasrri',compact('prov','dist','red','microred'));
+        return view('viviendasrri',compact('prov','dist','red','microred','localidades'));
     }
 }

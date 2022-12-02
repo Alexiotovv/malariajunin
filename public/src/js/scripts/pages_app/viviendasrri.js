@@ -113,7 +113,7 @@ $("#btnNuevoRegistroRRI").click(function (e) {
     e.preventDefault();
     $("#EtiquetaViviendasRRI").text('REGISTRO FICHA DE EVALUACIÓN DE VIVIENDAS CON RRI');
     $("#IdViviendasRRI").val('');
-    $("#Localidad").val('');
+    // $("#Localidad").val('');
     $("#ModalViviendasRRI").modal('show');
 });
 
@@ -128,7 +128,7 @@ $(document).on("click",".btnEditarViviendasRRI",function (e) {
         dataType: "json",
         success: function (response) {
             $("#IdViviendasRRI").val(id);
-            $("#Localidad").val(response[0].Localidad);
+            $("#Localidad").val(response[0].idLocalidad).change();
             $("#Provincia").val(response[0].IdProvincia).change();
             $("#Distrito").val(response[0].IdDistrito).change();
             $("#Idred").val(response[0].Idred).change();
@@ -189,7 +189,7 @@ $("#DTListaViviendasRRI").DataTable({
         {data:'Distrito'},
         {data:'Red'},
         {data:'Microred'},
-        {data:'Localidad'},
+        {data:'NombreLocalidad'},
         {data:'Usuario'},
         ]
         ,order: [0],

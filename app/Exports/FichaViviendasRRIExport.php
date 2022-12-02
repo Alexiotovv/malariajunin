@@ -27,13 +27,14 @@ class FichaViviendasRRIExport implements FromCollection,WithHeadings
         ->leftjoin('distritos','distritos.id','=','viviendasconrris.IdDistrito')
         ->leftjoin('viviendasrociadas','viviendasrociadas.IdViviendasIRR','=','viviendasconrris.id')
         ->leftjoin('users','users.id','=','viviendasconrris.Usuario')
+        ->leftjoin('localidades','localidades.id','=','viviendasconrris.idLocalidad')
         ->select(
         'viviendasconrris.id as ID_FICHA',
         'provincias.nombre_provincia AS PROVINCIA',
         'distritos.nombre_distrito AS DISTRITO',
         'reds.nombre_red AS RED',
         'microreds.nombre_microred AS MICRORED',
-        'viviendasconrris.Localidad AS LOCALIDAD',
+        'localidades.nombre_localidad AS LOCALIDAD',
         'viviendasrociadas.NumeroViviendasRociadas AS VIVIENDAS_ROCIADAS',
         'viviendasrociadas.FechaPrimerCiclo AS FECHA_PRIMER_CICLO',
         'viviendasrociadas.FechaSegundoCiclo AS FECHA_SEGUNDO_CICLO',

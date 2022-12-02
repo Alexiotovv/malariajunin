@@ -69,7 +69,7 @@ class MosquiterosEntregadosController extends Controller
         $obj->Provincia=request('Provincia');
         $obj->Distrito=request('Distrito');
         $obj->Ipress=request('Ipress');
-        $obj->Comunidad=request('Comunidad');
+        $obj->idLocalidad=request('Localidad');
         $obj->FechaEntrega=request('FechaEntrega');
         $obj->FechaMonitoreo=request('FechaMonitoreo');
         $obj->NumeroMonitoreo=request('NumeroMonitoreo');
@@ -96,7 +96,7 @@ class MosquiterosEntregadosController extends Controller
         $obj->Provincia=request('Provincia');
         $obj->Distrito=request('Distrito');
         $obj->Ipress=request('Ipress');
-        $obj->Comunidad=request('Comunidad');
+        $obj->idLocalidad=request('Localidad');
         $obj->FechaEntrega=request('FechaEntrega');
         $obj->FechaMonitoreo=request('FechaMonitoreo');
         $obj->NumeroMonitoreo=request('NumeroMonitoreo');
@@ -117,9 +117,10 @@ class MosquiterosEntregadosController extends Controller
         ->leftjoin('distritos','distritos.id','=','mosquiteros_entregados.Distrito')
         ->leftjoin('establecimientos','establecimientos.id','=','mosquiteros_entregados.Ipress')
         ->leftjoin('users','users.id','=','mosquiteros_entregados.Usuario')
+        ->leftjoin('localidades','localidades.id','=','mosquiteros_entregados.idLocalidad')
         ->select('mosquiteros_entregados.id as Id','mosquiteros_entregados.*',
         'departamentos.*','provincias.*','distritos.*','users.name as usuario',
-        'establecimientos.nombre_establecimiento')
+        'establecimientos.nombre_establecimiento','localidades.nombre_localidad')
         ->where('mosquiteros_entregados.delete','=',0)
         ->where('mosquiteros_entregados.Usuario','=',auth()->user()->id)
         ->get();
@@ -149,7 +150,11 @@ class MosquiterosEntregadosController extends Controller
         ->select('establecimientos.id as id','establecimientos.codigo','establecimientos.nombre_establecimiento')
         ->get();
 
-        return view('EntregaMosquitero',compact('dpto','prov','dist','ests'));
+        $localidades=DB::table('localidades')
+        ->select('localidades.id as id','localidades.nombre_localidad')
+        ->get();
+
+        return view('EntregaMosquitero',compact('dpto','prov','dist','ests','localidades'));
 
     }
 

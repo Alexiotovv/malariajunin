@@ -23,7 +23,10 @@ class CreateMosquiterosEntregadosTable extends Migration
             $table->foreign('Distrito')->references('id')->on('distritos')->onUpdate('cascade')->onDelete('cascade');
             $table->bigInteger('Ipress')->unsigned();
             $table->foreign('Ipress')->references('id')->on('establecimientos')->onUpdate('cascade');
-            $table->string('Comunidad', 100)->nullable()->default('-');
+            
+            $table->bigInteger('idLocalidad')->unsigned();
+            $table->foreign('idLocalidad')->references('id')->on('localidades')->onDelete('cascade')->onUpdate('cascade');
+            
             $table->date('FechaEntrega')->nullable();
             $table->date('FechaMonitoreo')->nullable();
             $table->string('NumeroMonitoreo', 100)->nullable()->default('text');
