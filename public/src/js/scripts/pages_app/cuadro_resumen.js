@@ -16,6 +16,10 @@ var TIEMPO_ESS_TOTAL=[];
 
 var MEDIO_TRANSPORTE=[];
 var MEDIO_TRANS_TOTAL=[];
+
+var ITEMS=[];
+var CANT_ITEMS=[];
+
 $("#btnEtapaVida").on("click",function (e) {
     e.preventDefault();
     if ($('#Localidades :selected').length>10) {    
@@ -122,6 +126,39 @@ $("#btnEtapaVida").on("click",function (e) {
       });
     
 })
+
+$("#FiltrarDinamico").on("click",function (e){
+  e.preventDefault();
+    if ($('#Localidades :selected').length>10) {    
+      alert("Solo se permite seleccionar 10 Localidades");
+    }
+      e.preventDefault();
+      ds=$("#frmLocalidades2").serialize();
+      ITEMS=[];
+      CANT_ITEMS=[];
+      
+      $.ajax({
+          type: "POST",
+          url: "CuadroDinamico",
+          data: ds,
+          dataType: "json",
+          success: function (response) {
+              $("#DTFF_PorItem tbody").html("");
+            //CUADRO DINAMICO
+            $.each(response.ETAPA, function (index, item) {
+              $("#DTFF_PorItem tbody").append('<tr>\
+                  <td style="font-size: 11px;">'+ item.NOMBRE_ITEM+'</td>\
+                  <td style="font-size: 11px;">'+ item.CANTIDAD+'</td>\
+                  </tr>'
+              );
+              ITEMS.push(item.NOMBRE_ITEM);
+              CANT_ITEMS.push(item.CANTIDAD);
+            });
+            //END CUADRO DINAMICO
+            // CuadroDinamico();
+          }
+      });
+});
 
 
 function PoblacionEtapaVida(){ 
@@ -336,3 +373,8 @@ function TransporteMasUsado(){
   window.dispatchEvent(new Event('resize'))
 
 }
+
+function GraficoDinamico(){
+
+}
+

@@ -1,13 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Models\resumenes;
 use Illuminate\Http\Request;
 use DB;
+
 class ResumenesController extends Controller
 {
-
     public function CuadroEtapaVidaFF(Request $request)
     {
         $localidades=$request->input('Localidades');
@@ -61,11 +60,70 @@ class ResumenesController extends Controller
         $FF_TIEMPO_RES = DB::select("call FF_MULTIFAM_TIEMP_RESIDENCIA('$Loca1','$Loca2','$Loca3','$Loca4','$Loca5','$Loca6','$Loca7','$Loca8','$Loca9','$Loca10')");
         $ESS_CERCANO=DB::select("call FF_TIEMPO_ESS_CERCANO('$Loca1','$Loca2','$Loca3','$Loca4','$Loca5','$Loca6','$Loca7','$Loca8','$Loca9','$Loca10')");
         $TRANS_MAS_USADO=DB::select("call FF_TRANSPORTE_MAS_USADO('$Loca1','$Loca2','$Loca3','$Loca4','$Loca5','$Loca6','$Loca7','$Loca8','$Loca9','$Loca10')");
+
+
+
         return response()->json([
             'ETAPA'=>$ETAPA,
             'FF_TIEMPO_RES'=>$FF_TIEMPO_RES,
             'ESS_CERCANO'=>$ESS_CERCANO,
             'TRANS_MAS_USADO'=>$TRANS_MAS_USADO,
+        ]);
+    }
+
+    public function CuadroDinamico(Request $request)
+    {
+        
+        $localidades=$request->input('Localidades2');
+        $num=0;
+        $Loca1='';
+        $Loca2='';
+        $Loca3='';
+        $Loca4='';
+        $Loca5='';
+        $Loca6='';
+        $Loca7='';
+        $Loca8='';
+        $Loca9='';
+        $Loca10='';
+        foreach ($localidades as $key => $value) {
+            $num=$num+1;
+            switch ($num) {
+                case '1':
+                    $Loca1=$value;
+                    break;
+                case '2':
+                    $Loca2=$value;
+                    break;
+                case '3':
+                    $Loca3=$value;
+                    break;
+                case'4':
+                    $Loca4=$value;
+                    break;
+                case'5':
+                    $Loca5=$value;
+                    break;
+                case'6':
+                    $Loca6=$value;
+                    break;
+                case'7':
+                    $Loca7=$value;
+                    break;
+                case'8':
+                    $Loca8=$value;
+                    break;
+                case'9':
+                    $Loca9=$value;
+                    break;
+                case '10':
+                    $Loca10=$value;
+                    break;
+            }
+        }
+        $CUADRO_DINAMICO = DB::select("call ETAPA_VIDA('$Loca1','$Loca2','$Loca3','$Loca4','$Loca5','$Loca6','$Loca7','$Loca8','$Loca9','$Loca10')");
+        return response()->json([
+            'ETAPA'=>$ETAPA,
         ]);
     }
 
@@ -76,5 +134,6 @@ class ResumenesController extends Controller
         ->distinct()
         ->get();
         return view('CuadrosResumen',compact('localidades'));
+    
     }
 }

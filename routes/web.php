@@ -14,6 +14,7 @@ use App\Http\Controllers\MapeoentoController;
 use App\Http\Controllers\MantbienesController;
 use App\Http\Controllers\CapacitacionesController;
 use App\Http\Controllers\ResumenesController;
+use App\Http\Controllers\OtrasopcionesController;
 
 Route::get('/', function () {
     return view('login');
@@ -138,17 +139,21 @@ Route::post("ActualizaCapacitacionesDetalle",[CapacitacionesController::class, "
 
 //// END CAPACITACIONES TECNICOS DE LABORATORIO
 
+
 ///CUADROS_RESUMEN
 // Route::post("CuadroTiempoResidencia",[ResumenesController::class, "TiempoResidenciaFF"])->name('Tiempo.ResidenciaFF');
 Route::post("CuadroEtapaVida",[ResumenesController::class, "CuadroEtapaVidaFF"])->name('Cuadro.EtapaVida');
 Route::get("CuadroResumen",[ResumenesController::class, "CuadroResumenFF"])->name('Cuadro.Resumen');
-
+Route::get("CuadroDinamico",[ResumenesController::class, "CuadroDinamico"])->name('Cuadro.Dinamico');
 ///END CUADROS RESUMEN
+
 
 
 Route::get("ListarRegiones/{id}",[FichaFamiliarsController::class, "ListarRegiones"])->name('Listar.Regiones');
 Route::get("ListarRedes/{id}",[FichaFamiliarsController::class, "ListarRedes"])->name('Listar.Redes');
 Route::get("ListarRed/{id}",[FichaFamiliarsController::class, "ListarRed"])->name('Listar.Red');
+
+
 
 
 /////////////////////////////////////////LOGIN AND REGISTER
