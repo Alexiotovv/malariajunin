@@ -15,6 +15,9 @@ use App\Http\Controllers\MantbienesController;
 use App\Http\Controllers\CapacitacionesController;
 use App\Http\Controllers\ResumenesController;
 use App\Http\Controllers\OtrasopcionesController;
+use App\Http\Controllers\MapentoCuadroController;
+use App\Http\Controllers\EspeciesController;
+
 
 Route::get('/', function () {
     return view('login');
@@ -139,6 +142,15 @@ Route::post("ActualizaCapacitacionesDetalle",[CapacitacionesController::class, "
 
 //// END CAPACITACIONES TECNICOS DE LABORATORIO
 
+////MAPEO ENTOMOLOGICO CUADRO RESUMIDO
+Route::get("MapeoEntoCuadro",[MapentoCuadroController::class, "MapeoEntoCuadro"])->name('MapeoEntoCuadro');
+Route::get("ListarMapeoEntoCuadro",[MapentoCuadroController::class, "ListarMapeoEntoCuadro"])->name('Listar.MapeoEntoCuadro');
+Route::post("GuardaMapeoEntoCuadro",[MapentoCuadroController::class, "GuardaMapeoEntoCuadro"])->name('Guarda.MapeoEntoCuadro');
+Route::get("EditaMapeoEntoCuadro/{id}",[MapentoCuadroController::class, "EditaMapeoEntoCuadro"])->name('Edita.MapeoEntoCuadro');
+Route::post("ActualizaMapeoEntoCuadro",[MapentoCuadroController::class, "ActualizaMapeoEntoCuadro"])->name('Actualiza.MapeoEntoCuadro');
+Route::get("EliminaMapeoEntoCuadro/{id}",[MapentoCuadroController::class, "EliminaMapeoEntoCuadro"])->middleware(['auth'])->name('Elimina.MapeoEntoCuadro');
+////END MAPEO ENTOMOLOGICO CUADRO RESUMIDO
+
 
 ///CUADROS_RESUMEN
 // Route::post("CuadroTiempoResidencia",[ResumenesController::class, "TiempoResidenciaFF"])->name('Tiempo.ResidenciaFF');
@@ -148,12 +160,14 @@ Route::get("CuadroDinamico",[ResumenesController::class, "CuadroDinamico"])->nam
 ///END CUADROS RESUMEN
 
 
+//Especies
+Route::post("GuardaEspecie",[EspeciesController::class, "GuardaEspecie"])->name('Guarda.Especie');
+//End Especies
+
 
 Route::get("ListarRegiones/{id}",[FichaFamiliarsController::class, "ListarRegiones"])->name('Listar.Regiones');
 Route::get("ListarRedes/{id}",[FichaFamiliarsController::class, "ListarRedes"])->name('Listar.Redes');
 Route::get("ListarRed/{id}",[FichaFamiliarsController::class, "ListarRed"])->name('Listar.Red');
-
-
 
 
 /////////////////////////////////////////LOGIN AND REGISTER
@@ -197,5 +211,8 @@ Route::get("FichaLocMapeoEntExport",[ProduccionController::class, "FichaLocMapeo
 Route::get("FichaBienesMantEstadoExport",[ProduccionController::class, "FichaBienesMantEstadoExport"])->name('Exportar.FichaBienesMantEstadoExport');
 
 Route::get("FichaCapacTecLabExport",[ProduccionController::class, "FichaCapacTecLabExport"])->name('Exportar.FichaCapacTecLabExport');
+
+Route::get("FichaMapEntoAnopheExport",[ProduccionController::class, "ExportarFichaMapEntoAnopheExport"])->name('Exportar.FichaMapEntoAnopheExport');
+
 ////END PRODUCTION
 

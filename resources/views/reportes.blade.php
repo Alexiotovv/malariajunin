@@ -74,9 +74,17 @@
             </div>
             <div class="card">
                 <div class="card-body">
-                    <h4 style="text-align: center;">CAPACITACIÓN TÉCNICOS DE LAORATORIO</h4>
+                    <h4 style="text-align: center;">CAPACITACIÓN TÉCNICOS DE LABORATORIO</h4>
                     <div class="card mb-1">
                         <a type="button" href="FichaCapacTecLabExport" class="btn btn-outline-success">F.Capac.Tec.LaboratorioConsolidado.xlsx <i data-feather='arrow-down-circle'></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <h4 style="text-align: center;">MAPEO ENT. ANOPHELES</h4>
+                    <div class="card mb-1">
+                        <a type="button" href="FichaMapEntoAnopheExport" class="btn btn-outline-success">F.Capac.Tec.LaboratorioConsolidado.xlsx <i data-feather='arrow-down-circle'></i></a>
                     </div>
                 </div>
             </div>

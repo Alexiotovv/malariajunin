@@ -460,7 +460,8 @@
                         </li>
                         <li><a class="d-flex align-items-center" href="{{url('Capacitaciones')}}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Preview">CapacitacionesTec.</span></a>
                         </li>
-                        
+                        <li><a class="d-flex align-items-center" href="{{url('MapeoEntoCuadro')}}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Preview">MapEntoAnopheles</span></a>
+                        </li>
                     </ul>
                 </li>
 

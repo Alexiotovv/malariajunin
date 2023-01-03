@@ -29,5 +29,6 @@ class AddIdLocalidadToViviendasconrris extends Migration
         Schema::table('viviendasconrris', function (Blueprint $table) {
             //
         });
+        
     }
 }

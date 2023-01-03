@@ -1,3 +1,44 @@
+function GuardaRegistroEspecie(ds,ru) {
+    
+    $.ajax({
+        type: "POST",
+        url: ru,
+        data: ds,
+        dataType: "json",
+        success: function (response) {
+            mje=response.Mensaje;
+            icono=response.Icono;
+            if (mje=='Registro Guardado') {
+                $("#Especies").empty();
+                response.especies.forEach(element => {
+                    // console.log(element['nombre_especie']);
+                    if (element['nombre_especie']==$("#nombre_especie").val().toUpperCase()) {
+                        $("#Especies").append('<option selected value=' + element['id'] + '>'+element['nombre_especie']+'</option>');
+                    }else{
+                        $("#Especies").append('<option value=' + element['id'] + '>'+element['nombre_especie']+'</option>');
+                    }
+                });
+                $("#nombre_especie").val('');
+            }
+            
+            Swal.fire(
+                {
+                position: 'top-end',
+                icon: icono,
+                title: mje,
+                showConfirmButton: false,
+                timer: 1500}
+                )
+            $(dt).DataTable().ajax.reload();
+            
+        },
+        error: function(response) {
+            Swal.fire('OPS!', 'Hubo un error!', 'error')
+        },
+    });
+};
+
+
 ////LA FUNCIÓN PARA GUARDAR O ACTUALIZAR REGISTRO
 function GuardarRegistro(ds,ru,mje,dt){
     $.ajax({
@@ -63,6 +104,23 @@ function ObtieneRegiones(dist) {
                 if ((item.distId) == ($("#" + dist + "").val())) {
                     // $("#Departamento").val(item.dptoId).change();
                     $("#Provincia").val(item.provId).change();
+                    return false;
+                }
+            });
+        }
+    });
+}
+
+function ObtieneRed(microred){
+
+    $.ajax({
+        url: "ListarRed/" + $("#" + microred + "").val(),
+        method: "GET",
+        dataType: "json",
+        success: function(response) {
+            $.each(response.lista_red, function(key, item) {
+                if ((item.Idmicrored) == ($("#" + microred + "").val())) {
+                    $("#Idred").val(item.idRed).change();
                     return false;
                 }
             });

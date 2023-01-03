@@ -14,6 +14,7 @@ use App\Exports\FichaViviendasRRIExport;
 use App\Exports\FichaLocMapeoEntExport;
 use App\Exports\FichaBienesMantEstadoExport;
 use App\Exports\FichaCapacTecLabExport;
+use App\Exports\FichaMapEntoAnopheExport;
 use DB;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -22,6 +23,12 @@ class ProduccionController extends Controller
      public function Reportes()
      {
           return view('reportes');
+     }
+     
+     public function ExportarFichaMapEntoAnopheExport()
+     {
+          return Excel::download(new FichaMapEntoAnopheExport, 'FichaMapEntoAnopheExport.xlsx');
+          
      }
 
      public function ExportarFichaMosquiterosEntregados()
