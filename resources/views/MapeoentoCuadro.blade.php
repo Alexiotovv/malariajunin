@@ -4,7 +4,7 @@
     
     <div class="card">
         <div class="card-header border-bottom">
-            <h5 class="card-title">DISTRIBUCION DEL ANOPHELES - MAPEO ENTOMOLÓGICO</h5>
+            <h5 class="card-title">DISTRIBUCION - MAPEO ENTOMOLÓGICO</h5>
             <!-- Button trigger modal -->
             <button class="btn btn-primary" data-toggle="modal" id="btnNuevoMapeoEntoCuadro"><i
                     data-feather='plus'></i>

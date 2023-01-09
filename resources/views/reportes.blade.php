@@ -82,9 +82,9 @@
             </div>
             <div class="card">
                 <div class="card-body">
-                    <h4 style="text-align: center;">MAPEO ENT. ANOPHELES</h4>
+                    <h4 style="text-align: center;">MAPEO ENTOMOLÓGICO</h4>
                     <div class="card mb-1">
-                        <a type="button" href="FichaMapEntoAnopheExport" class="btn btn-outline-success">F.Capac.Tec.LaboratorioConsolidado.xlsx <i data-feather='arrow-down-circle'></i></a>
+                        <a type="button" href="FichaMapEntoAnopheExport" class="btn btn-outline-success">MapeoEntomológico.xlsx <i data-feather='arrow-down-circle'></i></a>
                     </div>
                 </div>
             </div>

@@ -6,9 +6,7 @@ $("#btnGuardaNuevaEspecie").on("click",function (e) {
     GuardaRegistroEspecie(ds,ru);
     
     $("#ModalNuevaEspecie").modal('hide');
-    //limpiar select de Especies
-    
-    //Llenar select de Especies
+
 });
 
 $("#AgregarEspecie").on("click",function (e){
@@ -34,7 +32,7 @@ $("#btnGuardaMapeoEntoCuadro").click(function (e) {
     e.preventDefault();
     ds=$("#formMapeoEntoCuadro").serialize();
     dt="#DTListaMapeoEntoCuadro";
-    if ($("#EtiquetaMapeoEntoCuadro").text()=='REGISTRO MAPEO ENTOMOLÓGICO ANOPHELES') {
+    if ($("#EtiquetaMapeoEntoCuadro").text()=='REGISTRO MAPEO ENTOMOLÓGICO') {
         ru='GuardaMapeoEntoCuadro';   
         mje='Registro Guardado';
     }else{
@@ -48,7 +46,7 @@ $("#btnGuardaMapeoEntoCuadro").click(function (e) {
 
 $(document).on("click",".btnEditarMapeoEntoCuadro",function (e) {
     e.preventDefault();
-    $("#EtiquetaMapeoEntoCuadro").text('EDITAR MAPEO ENTOMOLÓGICO ANOPHELES');
+    $("#EtiquetaMapeoEntoCuadro").text('EDITAR MAPEO ENTOMOLÓGICO');
     fila = $(this).closest("tr");
     id = (fila).find('td:eq(0)').text();
     $.ajax({
@@ -76,7 +74,7 @@ $(document).on("click",".btnEditarMapeoEntoCuadro",function (e) {
 
 $("#btnNuevoMapeoEntoCuadro").on("click",function (e) {
     e.preventDefault();
-    $("#EtiquetaMapeoEntoCuadro").text('REGISTRO MAPEO ENTOMOLÓGICO ANOPHELES')
+    $("#EtiquetaMapeoEntoCuadro").text('REGISTRO MAPEO ENTOMOLÓGICO')
     $("#ModalMapeoEntoCuadro").modal("show");
     
 })

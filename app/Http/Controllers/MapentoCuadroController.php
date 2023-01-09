@@ -25,7 +25,7 @@ class MapentoCuadroController extends Controller
         $obj->IdProvincia=request('Provincia');
         $obj->IdDistrito=request('Distrito');
         $obj->idLocalidad=request('Localidad');
-        $obj->idEspecie=request('Especie');
+        $obj->idEspecies=request('Especies');
         $obj->tipo_mapeo=request('tipo_mapeo');
         $obj->mes=request('mes');
         $obj->ano=request('ano');
