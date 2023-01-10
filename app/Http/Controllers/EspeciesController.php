@@ -33,6 +33,7 @@ class EspeciesController extends Controller
     }
         public function ActualizaEspecie(Request $request)
         {
+            
             $id=request('IdEspecie');
             $obj= Especies::FindOrfail($id);
             $obj->nombre_especie=request('nombre_especie');
