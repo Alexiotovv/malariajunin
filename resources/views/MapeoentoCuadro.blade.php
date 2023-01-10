@@ -12,6 +12,7 @@
             </button>
             <!-- Modal -->
         </div>
+        
         <div class="card-body">
             <table id="DTListaMapeoEntoCuadro" class="table table-responsive">
                 <thead>
@@ -25,6 +26,7 @@
                         <td>Localidad</td>
                         <td>TipoMapeo</td>
                         <td>Especie</td>
+                        <td>Cantidad</td>
                         <td>Mes</td>
                         <td>Año</td>
                         <td>Usuario</td>
@@ -157,7 +159,10 @@
                                             <option value="2026">2026</option>
                                         </select>
                                     </div>
-                                    
+                                    <div class="col-xl-2">
+                                        <label for="ano">Cantidad</label>
+                                        <input class="form-control" type="number" id="Cantidad" name="Cantidad" value="0">
+                                    </div>
                                     
                                 </div>
                             </div>
@@ -192,7 +197,7 @@
                                 <div class="col-sm-12">
                                     <label for="nombre_especie">Nombre Especie</label>
                                     <input type="text" class="form-control form-control-sm" name="nombre_especie" 
-                                    id="nombre_especie" >
+                                    id="nombre_especie" required>
                                 </div>
                             </div>
                         </div>

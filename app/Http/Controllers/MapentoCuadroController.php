@@ -26,6 +26,7 @@ class MapentoCuadroController extends Controller
         $obj->IdDistrito=request('Distrito');
         $obj->idLocalidad=request('Localidad');
         $obj->idEspecies=request('Especies');
+        $obj->cantidad=request('Cantidad');
         $obj->tipo_mapeo=request('tipo_mapeo');
         $obj->mes=request('mes');
         $obj->ano=request('ano');
@@ -55,6 +56,7 @@ class MapentoCuadroController extends Controller
         $obj->IdDistrito=request('Distrito');
         $obj->idLocalidad=request('Localidad');
         $obj->idEspecies=request('Especies');
+        $obj->cantidad=request('Cantidad');
         $obj->tipo_mapeo=request('tipo_mapeo');
         $obj->mes=request('mes');
         $obj->ano=request('ano');

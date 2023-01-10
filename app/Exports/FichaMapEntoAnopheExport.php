@@ -37,6 +37,7 @@ class FichaMapEntoAnopheExport implements FromCollection,WithHeadings
         'localidades.nombre_localidad AS LOCALIDAD',
         'mapento_cuadros.tipo_mapeo AS TIPO',
         'especies.nombre_especie AS NOMBRE_ESPECIE',
+        'mapento_cuadros.cantidad as CANTIDAD',
         'mapento_cuadros.mes AS MES',
         'mapento_cuadros.ano AS AÑO',
         'users.name AS USUARIO')
@@ -57,6 +58,7 @@ class FichaMapEntoAnopheExport implements FromCollection,WithHeadings
             'LOCALIDAD',
             'TIPO',
             'NOMBRE_ESPECIE',
+            'CANTIDAD',
             'MES',
             'AÑO',
             'USUARIO',

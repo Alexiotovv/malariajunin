@@ -162,6 +162,9 @@ Route::get("CuadroDinamico",[ResumenesController::class, "CuadroDinamico"])->nam
 
 //Especies
 Route::post("GuardaEspecie",[EspeciesController::class, "GuardaEspecie"])->name('Guarda.Especie');
+Route::post("ActualizaEspecie",[EspeciesController::class, "ActualizaEspecie"])->name('Actualiza.Especie');
+Route::get("ListarEspecies",[EspeciesController::class, "ListarEspecies"])->name('Listar.Especies');
+Route::get("Especies",[EspeciesController::class, "Especies"])->name('Especies');
 //End Especies
 
 

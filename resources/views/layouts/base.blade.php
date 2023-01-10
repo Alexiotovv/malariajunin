@@ -472,6 +472,8 @@
                             </li> --}}
                             <li><a class="d-flex align-items-center" href="{{url('Usuarios')}}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Preview">Listar Usuarios</span></a>
                             </li>
+                            <li><a class="d-flex align-items-center" href="{{url('Especies')}}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Preview">Listar Especies</span></a>
+                            </li>
                             
                         </ul>
                     </li>

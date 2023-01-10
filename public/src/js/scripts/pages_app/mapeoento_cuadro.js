@@ -61,6 +61,7 @@ $(document).on("click",".btnEditarMapeoEntoCuadro",function (e) {
             $("#Idred").val(response[0].Idred).change();
             $("#Idmicrored").val(response[0].Idmicrored).change();
             $("#tipo_mapeo").val(response[0].tipo_mapeo).change();
+            $("#Cantidad").val(response[0].cantidad);
             $("#Especies").val(response[0].idEspecies).change();
             $("#mes").val(response[0].mes).change();
             $("#ano").val(response[0].ano).change();
@@ -98,6 +99,7 @@ $("#DTListaMapeoEntoCuadro").DataTable({
         {data:'NombreLocalidad'},
         {data:'tipo_mapeo'},
         {data:'nombre_especie'},
+        {data:'cantidad'},
         {data:'mes'},
         {data:'ano'},
         {data:'Usuario'},
